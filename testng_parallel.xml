@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="Suite 1" parallel="methods">
+    <groups>
+        <run>
+            <include name="ui" />
+            <include name="api" />
+            <!--  mvn test -Dgroups="regression","smoke" command will add more groups to this list -->
+        </run>
+    </groups>
+    <parameters>
+        <parameter name="browser" value="chrome-headless"/>
+    </parameters>
+    <listeners>
+        <listener class-name="org.cb.ta.tests.common.TestListener"/>
+    </listeners>
+    <test name="Elements Test">
+        <classes>
+            <class name="org.cb.ta.tests.UITest.SearchPageTest" />
+        </classes>
+    </test>
+    <test name="API Test">
+        <classes>
+            <class name="org.cb.ta.tests.APITest.v1.AccountAPITest" />
+            <class name="org.cb.ta.tests.APITest.v1.BooksAPITest" />
+            <class name="org.cb.ta.tests.APITest.v2.BooksAPITest" />
+            <class name="org.cb.ta.tests.APITest.v3.BooksAPITest" />
+        </classes>
+    </test>
+</suite>
